@@ -22,7 +22,9 @@ export class ProductShellComponent implements OnInit {
     this.store.dispatch(new productActions.Load());
     this.products$ = this.store.pipe(select(fromProduct.getProducts));
     this.errorMessage$ = this.store.pipe(select(fromProduct.getError));
-    this.selectedProduct$ = this.store.pipe(select(fromProduct.getCurrentProduct));
+    this.selectedProduct$ = this.store.pipe(
+      select(fromProduct.getCurrentProduct)
+    );
     this.displayCode$ = this.store.pipe(select(fromProduct.getShowProductCode));
   }
 
